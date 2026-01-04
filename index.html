@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySOFC - Solid Oxide Fuel Cell Solutions</title>
+    <style>
+        /* Global style reset: eliminate default margins and layout chaos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f0f0f0; /* Light gray background, fits black-gray tone */
+            color: #e0e0e0; /* Default light gray text for readability */
+        }
+
+        /* 顶部邮件联系横条 */
+        .top-email-bar {
+            width: 100%;
+            background-color: #000000; /* Pure black background */
+            padding: 10px 20px;
+            text-align: center; /* Text center alignment */
+            border-bottom: 1px solid #333333;
+        }
+
+        .top-email-text {
+            font-size: 0.9rem;
+            color: #999999;
+        }
+
+        .top-email-link {
+            color: #ffffff;
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* 导航栏（含矩形Logo + 菜单） */
+        .navbar {
+            width: 100%;
+            background-color: #111111; /* Dark black background, fit tone */
+            padding: 15px 20px;
+            border-bottom: 1px solid #333333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* 矩形Logo容器 */
+        .navbar-logo {
+            width: 120px; /* Rectangular width, customizable */
+            height: 40px; /* Rectangular height, customizable */
+            background-color: #444444; /* Placeholder background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* 导航菜单 */
+        .navbar-menu {
+            display: flex;
+            gap: 30px; /* Spacing between menu items */
+        }
+
+        .navbar-item {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: none; /* Remove any hover effect (no mouse interaction) */
+        }
+
+        /* 1. Banner display area (with background image) */
+        .banner {
+            width: 100%; /* Full screen width */
+            height: 50vh; /* Adaptive viewport height */
+            background: url("https://picsum.photos/1920/1080?random=0") no-repeat center center;
+            background-size: cover; /* Scale image to cover the container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            border-bottom: 1px solid #333333; /* Gray-black dividing line */
+            position: relative;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Black semi-transparent overlay */
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2; /* Make text above the overlay */
+        }
+
+        .banner-title {
+            font-size: 2.5rem;
+            color: #ffffff; /* White title for prominence */
+            margin-bottom: 1rem;
+        }
+
+        .banner-subtitle {
+            font-size: 1.2rem;
+            color: #999999; /* Light gray subtitle */
+        }
+
+        /* 2. Product display area (full screen width, no card style) */
+        .product-section {
+            width: 100%; /* Full screen width */
+            background-color: #222222; /* Gray-black background */
+            padding: 50px 0; /* Remove horizontal padding to full screen */
+        }
+
+        .product-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px; /* Spacing between products */
+        }
+
+        .product-item {
+            display: flex;
+            align-items: flex-start; /* Top alignment */
+            width: 100%; /* Full width of parent container */
+        }
+
+        /* Product image: width +15%, height +30% */
+        .product-img {
+            width: 345px; /* 300px * 1.15 = 345px */
+            height: 325px; /* 250px * 1.3 = 325px */
+            object-fit: cover; /* Keep image ratio, no distortion */
+            flex-shrink: 0; /* No shrink on PC */
+            background-color: #444444; /* Placeholder background for image loading */
+        }
+
+        .product-text {
+            padding: 0 30px; /* PC端左右边距30px，保持原有布局 */
+            flex: 1; /* Adaptive remaining width */
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .product-subtitle {
+            font-size: 1.2rem;
+            color: #aaaaaa;
+            margin-bottom: 20px;
+        }
+
+        .product-desc {
+            font-size: 1rem;
+            color: #cccccc;
+            line-height: 1.6; /* Optimize line height for readability */
+        }
+
+        /* 邮箱联系功能（产品模块与页脚之间） */
+        .contact-section {
+            width: 100%;
+            background-color: #333333; /* Dark gray background, distinguish sections */
+            padding: 60px 20px;
+            border-top: 1px solid #444444;
+            border-bottom: 1px solid #444444;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .contact-subtitle {
+            font-size: 1.1rem;
+            color: #aaaaaa;
+            margin-bottom: 30px;
+        }
+
+        .contact-email-link {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #111111;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            border: 1px solid #555555;
+            /* No hover effect, meet requirements */
+        }
+
+        /* 3. Company information area (footer) */
+        .company-info {
+            width: 100%; /* Full screen width */
+            background-color: #111111; /* Same as navbar and banner overlay */
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #333333;
+        }
+
+        .company-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .company-contact {
+            font-size: 1rem;
+            color: #999999;
+            line-height: 2; /* Increase line height to distinguish email and address */
+        }
+
+        /* ========== Media Queries: Multi-device adaptation (核心优化边距) ========== */
+        /* iPad (768px - 1024px) */
+        @media (max-width: 1024px) and (min-width: 768px) {
+            .banner-title {
+                font-size: 2rem;
+            }
+
+            .navbar-logo {
+                width: 100px;
+                height: 35px;
+            }
+
+            .navbar-menu {
+                gap: 25px;
+            }
+
+            .product-img {
+                width: 287.5px; /* 250px * 1.15 = 287.5px */
+                height: 286px; /* 220px * 1.3 = 286px */
+            }
+
+            .product-title {
+                font-size: 1.6rem;
+            }
+
+            .contact-title {
+                font-size: 1.6rem;
+            }
+
+            /* 核心优化：iPad端产品文本左右边距增大，避免离屏幕过窄 */
+            .product-text {
+                padding: 0 25px; /* 比PC端略小，但比原有移动端宽，适配平板屏幕 */
+            }
+
+            /* 辅助优化：给产品容器添加左右内边距，间接扩大文本与屏幕边缘的距离 */
+            .product-container {
+                padding: 0 20px;
+            }
+        }
+
+        /* Mobile (less than 768px) */
+        @media (max-width: 767px) {
+            .top-email-text {
+                font-size: 0.8rem; /* Adjust text size for mobile */
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 12px 20px;
+            }
+
+            .navbar-logo {
+                width: 90px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+
+            .navbar-menu {
+                gap: 20px;
+            }
+
+            .navbar-item {
+                font-size: 0.9rem;
+            }
+
+            .banner-title {
+                font-size: 1.8rem;
+            }
+
+            .banner-subtitle {
+                font-size: 1rem;
+            }
+
+            .product-item {
+                flex-direction: column; /* Vertical arrangement: image top, text bottom */
+                align-items: flex-start; /* Keep top alignment logic */
+            }
+
+            .product-img {
+                width: 100%; /* Full screen width on mobile */
+                height: 260px; /* 200px * 1.3 = 260px */
+            }
+
+            .product-title {
+                font-size: 1.4rem;
+            }
+
+            .product-subtitle {
+                font-size: 1rem;
+            }
+
+            /* 核心优化1：增大手机端产品文本左右边距，解决过窄问题 */
+            .product-text {
+                padding: 20px 25px 0; /* 顶部20px间距（与图片分隔），左右25px边距（远离屏幕边缘） */
+            }
+
+            /* 核心优化2：给产品容器添加左右内边距，进一步扩大文本与屏幕边缘的距离 */
+            .product-container {
+                padding: 0 15px;
+            }
+
+            .contact-title {
+                font-size: 1.4rem;
+            }
+
+            .contact-subtitle {
+                font-size: 1rem;
+            }
+
+            .contact-email-link {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+
+            .company-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部邮件联系横条 -->
+    <div class="top-email-bar">
+        <p class="top-email-text">Contact Us Directly: <a href="mailto:info@mysofc.com" class="top-email-link">info@mysofc.com</a></p>
+    </div>
+
+    <!-- 导航栏（矩形Logo + 首页/产品/博客） -->
+    <nav class="navbar">
+        <div class="navbar-logo">MySOFC</div>
+        <div class="navbar-menu">
+            <a href="#" class="navbar-item">Home</a>
+            <a href="#" class="navbar-item">Products</a>
+            <a href="#" class="navbar-item">Blog</a>
+        </div>
+    </nav>
+
+    <!-- 1. Banner Display Area (SOFC themed) -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1 class="banner-title">MySOFC - Advanced Solid Oxide Fuel Cell Technology</h1>
+            <p class="banner-subtitle">Efficient, Clean & Sustainable Energy Solutions for Global Markets</p>
+        </div>
+    </section>
+
+    <!-- 2. Product Display Area (3 SOFC products, left image + right text) -->
+    <section class="product-section">
+        <div class="product-container">
+            <!-- Product 1: SOFC Stack M100 -->
+            <div class="product-item">
+                <img src="https://picsum.photos/345/325?random=1" alt="MySOFC Stack M100 Display Image" class="product-img">
+                <div class="product-text">
+                    <h2 class="product-title">SOFC Stack M100</h2>
+                    <h3 class="product-subtitle">High Power Density · Long Service Life</h3>
+                    <p class="product-desc">The MySOFC Stack M100 adopts advanced ceramic electrolyte material, with a power density of 1.2 W/cm² and a service life of more than 10,000 hours. It operates at a medium temperature of 650-750℃, which reduces the cost of component materials and improves the system stability. It is suitable for distributed power generation, micro-grid energy supply and other scenarios.</p>
+                </div>
+            </div>
+
+            <!-- Product 2: SOFC System S500 -->
+            <div class="product-item">
+                <img src="https://picsum.photos/345/325?random=2" alt="MySOFC System S500 Display Image" class="product-img">
+                <div class="product-text">
+                    <h2 class="product-title">SOFC System S500</h2>
+                    <h3 class="product-subtitle">Integrated Design · Plug and Play</h3>
+                    <p class="product-desc">The MySOFC System S500 is an integrated energy supply system based on M100 stack, with a rated power of 500kW. It integrates fuel processing unit, power conversion unit and control system, supporting multiple fuels such as natural gas, biogas and hydrogen. It has the characteristics of high energy conversion efficiency (up to 65%) and low pollutant emission, which is ideal for industrial parks and commercial buildings.</p>
+                </div>
+            </div>
+
+            <!-- Product 3: SOFC Component C200 -->
+            <div class="product-item">
+                <img src="https://picsum.photos/345/325?random=3" alt="MySOFC Component C200 Display Image" class="product-img">
+                <div class="product-text">
+                    <h2 class="product-title">SOFC Component C200</h2>
+                    <h3 class="product-subtitle">High Precision · Customizable</h3>
+                    <p class="product-desc">The MySOFC Component C200 includes cathode, anode, electrolyte and interconnect plate, which are core components of SOFC stack. Adopting advanced thin-film preparation technology and precision machining process, the components have excellent electrical conductivity and thermal stability. We provide customized services according to customer's stack design requirements, to meet the diverse needs of different application scenarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 邮箱联系功能（产品模块与页脚之间） -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2 class="contact-title">Interested in MySOFC Solutions?</h2>
+            <p class="contact-subtitle">Reach out to us directly for personalized SOFC project consultation</p>
+            <a href="mailto:consult@mysofc.com" class="contact-email-link">Contact Us via Email</a>
+        </div>
+    </section>
+
+    <!-- 3. Company Information Area (Footer) -->
+    <section class="company-info">
+        <h2 class="company-title">About MySOFC</h2>
+        <div class="company-contact">
+            <p>Contact Email: info@mysofc.com</p>
+            <p>Company Address: 20th Floor, New Energy Building, High-Tech Zone, Shanghai, China</p>
+        </div>
+    </section>
+</body>
+</html>
