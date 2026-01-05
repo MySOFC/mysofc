@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MRLRVM0X80"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MRLRVM0X80');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MySOFC - Solid Oxide Fuel Cell Solutions</title>
@@ -54,7 +62,7 @@
         .navbar-logo {
             width: 120px; /* Rectangular width, customizable */
             height: 40px; /* Rectangular height, customizable */
-            background-color: #444444; /* Placeholder background */
+            background-color: #44444400; /* Placeholder background */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -81,7 +89,7 @@
         .banner {
             width: 100%; /* Full screen width */
             height: 50vh; /* Adaptive viewport height */
-            background: url("https://picsum.photos/1920/1080?random=0") no-repeat center center;
+            background: url("banner-bg.jpg") no-repeat center center;
             background-size: cover; /* Scale image to cover the container */
             display: flex;
             justify-content: center;
@@ -355,24 +363,27 @@
 <body>
     <!-- 顶部邮件联系横条 -->
     <div class="top-email-bar">
-        <p class="top-email-text">Contact Us Directly: <a href="mailto:info@mysofc.com" class="top-email-link">info@mysofc.com</a></p>
+        <p class="top-email-text">Contact: <a href="mailto:anoldxu@gmail.com" class="top-email-link">anoldxu@gmail.com</a></p>
     </div>
 
     <!-- 导航栏（矩形Logo + 首页/产品/博客） -->
-    <nav class="navbar">
-        <div class="navbar-logo">MySOFC</div>
-        <div class="navbar-menu">
-            <a href="#" class="navbar-item">Home</a>
-            <a href="#" class="navbar-item">Products</a>
-            <a href="#" class="navbar-item">Blog</a>
-        </div>
-    </nav>
+   <nav class="navbar">
+    <!-- 替换后的Logo代码（本地图片） -->
+    <div class="navbar-logo">
+        <img src="mysofc-logo.png" alt="MySOFC Logo" style="width:100%; height:100%; object-fit:contain;">
+    </div>
+    <div class="navbar-menu">
+        <a href="#" class="navbar-item">Home</a>
+        <a href="#" class="navbar-item">Products</a>
+        <a href="#" class="navbar-item">Blog</a>
+    </div>
+</nav>
 
     <!-- 1. Banner Display Area (SOFC themed) -->
     <section class="banner">
         <div class="banner-content">
-            <h1 class="banner-title">MySOFC - Advanced Solid Oxide Fuel Cell Technology</h1>
-            <p class="banner-subtitle">Efficient, Clean & Sustainable Energy Solutions for Global Markets</p>
+            <h1 class="banner-title">We specialize in Solid Oxide Fuel Cell (SOFC) in China</h1>
+            <p class="banner-subtitle">A reliable supply chain and the most cost-effective partner.</p>
         </div>
     </section>
 
@@ -381,19 +392,22 @@
         <div class="product-container">
             <!-- Product 1: SOFC Stack M100 -->
             <div class="product-item">
-                <img src="https://picsum.photos/345/325?random=1" alt="MySOFC Stack M100 Display Image" class="product-img">
+                <img src="product1.jpg" alt="MySOFC unit cell Display Image" class="product-img">
                 <div class="product-text">
-                    <h2 class="product-title">SOFC Stack M100</h2>
+                    <h2 class="product-title">SOFC Single Cell</h2>
                     <h3 class="product-subtitle">High Power Density · Long Service Life</h3>
-                    <p class="product-desc">The MySOFC Stack M100 adopts advanced ceramic electrolyte material, with a power density of 1.2 W/cm² and a service life of more than 10,000 hours. It operates at a medium temperature of 650-750℃, which reduces the cost of component materials and improves the system stability. It is suitable for distributed power generation, micro-grid energy supply and other scenarios.</p>
+                    <p class="product-desc">Dimensions: 100mm*100mm,0.45mm(±0.01mm).Wide fuel adaptability, with hydrogen utilization rate reaching over 85%.
+High power density, high mechanical strength, and high flatness.
+
+</p>
                 </div>
             </div>
 
             <!-- Product 2: SOFC System S500 -->
             <div class="product-item">
-                <img src="https://picsum.photos/345/325?random=2" alt="MySOFC System S500 Display Image" class="product-img">
+                <img src="product2.jpg" alt="MySOFC 1KW Stack Display Image" class="product-img">
                 <div class="product-text">
-                    <h2 class="product-title">SOFC System S500</h2>
+                    <h2 class="product-title">SOFC Stack 100W/200W/500W/1000W</h2>
                     <h3 class="product-subtitle">Integrated Design · Plug and Play</h3>
                     <p class="product-desc">The MySOFC System S500 is an integrated energy supply system based on M100 stack, with a rated power of 500kW. It integrates fuel processing unit, power conversion unit and control system, supporting multiple fuels such as natural gas, biogas and hydrogen. It has the characteristics of high energy conversion efficiency (up to 65%) and low pollutant emission, which is ideal for industrial parks and commercial buildings.</p>
                 </div>
@@ -401,9 +415,9 @@
 
             <!-- Product 3: SOFC Component C200 -->
             <div class="product-item">
-                <img src="https://picsum.photos/345/325?random=3" alt="MySOFC Component C200 Display Image" class="product-img">
+                <img src="product3.jpg" alt="MySOFC System Display Image" class="product-img">
                 <div class="product-text">
-                    <h2 class="product-title">SOFC Component C200</h2>
+                    <h2 class="product-title">SOFC System Customizable</h2>
                     <h3 class="product-subtitle">High Precision · Customizable</h3>
                     <p class="product-desc">The MySOFC Component C200 includes cathode, anode, electrolyte and interconnect plate, which are core components of SOFC stack. Adopting advanced thin-film preparation technology and precision machining process, the components have excellent electrical conductivity and thermal stability. We provide customized services according to customer's stack design requirements, to meet the diverse needs of different application scenarios.</p>
                 </div>
@@ -416,7 +430,7 @@
         <div class="contact-container">
             <h2 class="contact-title">Interested in MySOFC Solutions?</h2>
             <p class="contact-subtitle">Reach out to us directly for personalized SOFC project consultation</p>
-            <a href="mailto:consult@mysofc.com" class="contact-email-link">Contact Us via Email</a>
+            <a href="mailto:anoldxu@gmail.com" class="contact-email-link">Contact Us via Email</a>
         </div>
     </section>
 
@@ -424,8 +438,8 @@
     <section class="company-info">
         <h2 class="company-title">About MySOFC</h2>
         <div class="company-contact">
-            <p>Contact Email: info@mysofc.com</p>
-            <p>Company Address: 20th Floor, New Energy Building, High-Tech Zone, Shanghai, China</p>
+            <p>Contact Email: anoldxu@gmail.com</p>
+            <p>Company Address: Room 204, Wanwei Building, Gong Ye 5 Road, Nanshan District, Shenzhen, China</p>
         </div>
     </section>
 </body>
